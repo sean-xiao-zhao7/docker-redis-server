@@ -1,4 +1,4 @@
-FROM node:alphine-14
+FROM node:14-alpine
 
 WORKDIR '/redis-server'
 
@@ -7,9 +7,7 @@ COPY package.json .
 RUN npm i
 
 # update src
-COPY src .
+COPY src src
 
 # start server
-CMD ['npm', 'start']
-
-
+CMD ["npm", "start"]
