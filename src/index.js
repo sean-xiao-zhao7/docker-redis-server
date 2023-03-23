@@ -12,7 +12,8 @@ client.set("visits", 0);
 app.get("/", (req, res) => {
     client.get("visits", (err, visits) => {
         res.send(visits + " visits so far.");
-        client.set("visits", +visits++);
+        const newVisits = +visits + 1;
+        client.set("visits", newVisits);
     });
 });
 
